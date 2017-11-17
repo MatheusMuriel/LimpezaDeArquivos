@@ -11,6 +11,10 @@ Loop, %Pasta%\*.pdf, , 1
  FileList = %FileList%%A_LoopFileTimeModified%`t%A_LoopFileName%`n
 Sort, FileList, R  ; Ordenar por data
 
+DataAtual = A_Now
+FormatTime, DataAtual, %DataAtual% dddd MMMM d, dd/MM tt
+MsgBox, 0, , Hoje é: (%DataAtual%)
+
 
 Loop, parse, FileList, `n
 {
