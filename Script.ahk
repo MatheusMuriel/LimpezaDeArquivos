@@ -33,7 +33,14 @@ Loop, parse, FileList, `n
 	VarDataMax = %DataLimite%
 	
 	if(VarDataArq < VarDataMax)
-	MsgBox, 4,, O arquivo %FileItem2% (%OutputDat%) é antigo... Deseja apagar?
-	IfMsgBox, No
-		break
+	MsgBox, 3,, O arquivo %FileItem2% (%OutputDat%) é antigo... Deseja apagar?
+	IfMsgBox, Yes 
+	{
+		FileDelete, %VarLocalArq%
+		MsgBox, Arquivo %FileItem2% Deletado
+	}
+	IfMsgBox,Cancel
+		Break
+	
+	
 }
